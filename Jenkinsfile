@@ -6,12 +6,8 @@ pipeline {
     }
 
     stages {
-    stage('Deploy to Production') {
-        when {
-            expression {
-               return params.Environment == 'PROD'
-            }
-        }
+    if {params.Environment == DEV
+    stage('Deploy to DEV') {
         steps {
                 sh """
                 echo "deploy to production"

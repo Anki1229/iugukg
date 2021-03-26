@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-    if {params.Environment == DEV
+    if (params.Environment == DEV){
     stage('Deploy to DEV') {
         steps {
                 sh """

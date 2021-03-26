@@ -10,10 +10,10 @@ pipeline {
     stage('Deploy to DEV') {
         steps {
                 sh """
-                echo "deploy to production"
+                echo "deploy to dev"
                 """
             }
         }
 }
 }
-
+}

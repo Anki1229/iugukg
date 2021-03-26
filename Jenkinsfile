@@ -1,21 +1,23 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    parameters {
+      choice choices: ['DEV', 'QA', 'PROD'], description: 'Select the Environment', name: 'Environment'
     }
+
+    stages {
+    stage('Deploy to Production') {
+        when {
+            expression {
+               return params.Environment == 'PROD'
+            }
+        }
+        steps {
+                sh """
+                echo "deploy to production"
+                """
+            }
+        }
 }
+}
+

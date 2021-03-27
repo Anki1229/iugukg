@@ -6,17 +6,19 @@ parameters {
 
     stages {
        
-        stage('Deploy to Dev') {
-            steps {
-                script {
-                    if (params.ENVIRONMET == 'DEV') {
-                        echo 'I only execute on the DEV branch'
-                    } 
-                    if (params.ENVIRONMET == 'QA') {
-                        echo 'I only execute on the QA branch'
-                    } 
-                }
-            }
+        stage ('Test 3: Master') {
+    when { ENVIRONMENT 'DEV' }
+    steps { 
+        echo 'I only execute on the DEV branch.' 
+    }
+}
+
+stage ('Test 3: Dev') {
+    when { not { ENVIRONMENT 'QA' } }
+    steps {
+        echo 'I execute on non-master branches.'
+    }
+}
         }
     }
 }

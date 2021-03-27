@@ -5,10 +5,11 @@ pipeline {
       choice choices: ['DEV', 'QA', 'PROD'], description: 'Select the Environment', name: 'Environment'
     }
 
-   
-    if (params.Environment == DEV){
-    stages {	
+    stages {
+        
     stage ('Deploy to DEV') {
+        
+        if (params.Environment == DEV){
         steps {
                 sh """
                 echo "deploy to DEV"

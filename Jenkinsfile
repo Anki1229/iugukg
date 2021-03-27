@@ -9,11 +9,9 @@ pipeline {
         
     stage ('Deploy to DEV') {
         
-        if (params.Environment == DEV){
+        if (params.ENVIRONMENT == DEV){
         steps {
-                sh """
-                echo "deploy to DEV"
-                """
+                sh """echo "deploy to DEV"""
             }
         }
 }

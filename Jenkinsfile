@@ -9,10 +9,10 @@ parameters {
         stage('Deploy to Dev') {
             steps {
                 script {
-                    if (env.ENVIRONMET == 'DEV') {
+                    if (params.ENVIRONMET == 'DEV') {
                         echo 'I only execute on the DEV branch'
                     } 
-                    if (env.ENVIRONMET == 'QA') {
+                    if (params.ENVIRONMET == 'QA') {
                         echo 'I only execute on the QA branch'
                     } 
                 }

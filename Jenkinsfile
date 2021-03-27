@@ -7,14 +7,14 @@ parameters {
     stages {
        
         stage ('Test 3: Master') {
-    when { ENVIRONMENT 'DEV' }
+    when { branch 'master' }
     steps { 
         echo 'I only execute on the DEV branch.' 
     }
 }
 
 stage ('Test 3: Dev') {
-    when { not { ENVIRONMENT 'QA' } }
+    when { not { branch 'master' } }
     steps {
         echo 'I execute on non-master branches.'
     }

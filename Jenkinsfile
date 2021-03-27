@@ -10,21 +10,24 @@ pipeline {
 
         stage("Build") {
             steps {
-                sh "hello worl from build"
+                sh '''echo "hello world"
+'''
             }
         }
         
         stage("Publish Pre-Release") {
             when { expression { !params.RELEASE } }
             steps {
-               sh "hello world if not flase"
+               sh '''echo "hello world if not false"
+'''
             }
         }
         
         stage("Publish Release") {
             when { expression { params.RELEASE } }
             steps {
-               sh "hello world if false"
+               sh '''echo "hello world if false"
+'''
             }
         }
     }

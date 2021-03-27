@@ -10,19 +10,16 @@ parameters {
                 sh 'echo hello'
             }
         }
-        stage('test1') {
-            steps {
-                sh 'echo $TEST'
-            }
         }
-        stage('test3') {
+        stage('Deploy to Dev') {
             steps {
                 script {
                     if (env.ENVIRONMET == 'DEV') {
                         echo 'I only execute on the DEV branch'
-                    } else {
-                        echo 'I execute elsewhere'
-                    }
+                    } 
+                    if (env.ENVIRONMET == 'QA') {
+                        echo 'I only execute on the QA branch'
+                    } 
                 }
             }
         }

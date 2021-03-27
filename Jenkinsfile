@@ -5,12 +5,7 @@ parameters {
 }
 
     stages {
-        stage('test') {
-            steps {
-                sh 'echo hello'
-            }
-        }
-        }
+       
         stage('Deploy to Dev') {
             steps {
                 script {

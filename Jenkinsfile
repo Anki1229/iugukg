@@ -10,4 +10,9 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            mail to: ankitbhatia2639@gmail.com, subject: 'The Pipeline failed :('
+        }
+    }
 }

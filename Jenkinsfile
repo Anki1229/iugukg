@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo "${params.Environment} World!"
+                echo "${params.ENVIRONMENT} World!"
             }
         }
     }

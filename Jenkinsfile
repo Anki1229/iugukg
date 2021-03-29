@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo  "Running ${env.BUILD_ID} on ${env.BUILD_NUMBER}
+                echo  "Running ${env.BUILD_ID} on ${env.BUILD_NUMBER}"
             }
         }
         stage('Test') {

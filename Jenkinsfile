@@ -1,19 +1,23 @@
 pipeline {
-    agent any
-    parameters {
-        string(name: 'ENVIRONMENT', defaultValue: 'Hello, I am QA', description: 'How should I greet the world?')
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000 -p 5000:5000' 
+        }
+    }
+    environment {
+        CI = 'true'
     }
     stages {
-        stage('Example') {
+        stage('Build') {
             steps {
-                echo "${params.ENVIRONMENT} World!"
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Hello World"
             }
         }
     }
-    post {
-        failure {
-            mail to: ankitbhatia2639@gmail.com, subject: 'The Pipeline failed'
-        }
-    }
-}
 }

@@ -1,22 +1,19 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000 -p 5000:5000' 
-        }
+pipeline{
+    agent any
+    environment{
+        MY_FILE = fileExists '/tmp/myfile.txt'
     }
-    environment {
-        CI = 'true'
-    }
-    stages {
-        stage('Build') {
+    stages{
+        stage('conditional if exists'){
+            when { expression { MY_FILE == 'true' } }
             steps {
-                sh 'npm install'
+                echo "file exists"
             }
         }
-        stage('Test') {
+        stage('conditional if not exists'){
+            when { expression { MY_FILE == 'false' } }
             steps {
-                echo "Hello World"
+                echo "file does not exist"
             }
         }
     }

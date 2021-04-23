@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        MY_FILE = fileExists '/tmp/myfile.txt'
+        MY_FILE = fileExists '/tmp/myfile22.txt'
     }
     stages{
         stage('conditional if exists'){

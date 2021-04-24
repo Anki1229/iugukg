@@ -1,0 +1,16 @@
+service: myService
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-south-1
+
+
+resources:
+  Resources:
+     MyS3:
+       Type: AWS::S3::Bucket
+       Properties:
+         BucketName: myslsbucketdemoqwerty
+

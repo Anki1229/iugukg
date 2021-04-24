@@ -10,7 +10,6 @@ pipeline{
                 echo "File exists"
                 sh '''sls print
                 '''
-                
             }
         }
         stage('conditional if not exists'){

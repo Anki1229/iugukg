@@ -8,6 +8,8 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "File exists"
+                sh '''sls print
+                '''
                 
             }
         }
@@ -15,6 +17,8 @@ pipeline{
             when { expression { MY_FILE == 'false' } }
             steps {
                 echo "File doesn't exists"
+                sh '''sls deploy
+                '''
             }
         }
     }

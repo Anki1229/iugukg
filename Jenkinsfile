@@ -8,6 +8,7 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "File exists"
+                cd /var/jenkins_home/workspace/pipeline
                 sh '''sls print
                 '''
             }

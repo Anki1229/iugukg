@@ -1,24 +1,11 @@
-pipeline{
-    agent any
-    environment{
-        MY_FILE = fileExists '/iugukg/serverless.yml'
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
     }
-    stages{
-        stage('conditional if exists'){
-            when { expression { MY_FILE == 'true' } }
+    stages {
+        stage('Test') {
             steps {
-                echo "File exists"
-                sh '''cd /var/jenkins_home/workspace/pipeline
-                sls print
-                '''
-            }
-        }
-        stage('conditional if not exists'){
-            when { expression { MY_FILE == 'false' } }
-            steps {
-                echo "File doesn't exists"
-                sh '''sls deploy
-                '''
+                sh 'node --version'
             }
         }
     }

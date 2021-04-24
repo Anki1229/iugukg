@@ -7,14 +7,14 @@ pipeline{
         stage('conditional if exists'){
             when { expression { MY_FILE == 'true' } }
             steps {
-                
+                echo "File exists"
                 
             }
         }
         stage('conditional if not exists'){
             when { expression { MY_FILE == 'false' } }
             steps {
-                
+                echo "File doesn't exists"
             }
         }
     }

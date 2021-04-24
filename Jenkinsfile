@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        MY_FILE = fileExists '/tmp/myfile22.txt'
+        MY_FILE = fileExists '/iugukg/serverless.yml'
     }
     stages{
         stage('conditional if exists'){

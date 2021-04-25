@@ -1,7 +1,9 @@
 
 pipeline{
     agent any
-    
+    environment{
+        MY_FILE = '/tmp/myfile22.txt'
+    }
      stages{
         stage('conditional if exists'){
             steps {
@@ -11,9 +13,9 @@ pipeline{
     }
 }
 
-def exists = fileExists '/tmp/myfile22.txt'
+def exists()
 
-if (exists) {
+if (fileExists('$MY_FILE')) {
     echo 'Yes'
 } else {
     echo 'No'

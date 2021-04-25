@@ -8,6 +8,7 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
+                cd /var/jenkins_home/workspace/pipeline
                 sh 'script.sh'
             }
         }

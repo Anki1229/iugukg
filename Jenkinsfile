@@ -5,15 +5,7 @@ pipeline{
         MY_FILE = '/tmp/myfile22.txt'
     }
      stages{
-        stage('conditional if exists'){
-            steps {
-
-                sh 'cd /tmp'
-                plan()
-            }
-        }
-    }
-
+        
         stage('plan dev'){
             steps{
                 script{
@@ -33,7 +25,7 @@ pipeline{
                 }
             }
         }              
-        
+    }    
 
 def plan(){
     agent any
@@ -46,5 +38,5 @@ def plan(){
             exit 0
         fi
         '''
-}
+    }
 }

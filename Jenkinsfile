@@ -19,7 +19,7 @@ pipeline{
                 script{
                     withCredentials([
                         [ 
-                          usernamePassword(credentialsId: 'awsuser',
+                          credentialsId: 'awsuser',
                           passwordVariable: 'AWS_ACCESS_SECRET_KEY',
                           usernameVariable: 'AWS_ACCESS_KEY_ID'
                         ]

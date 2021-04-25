@@ -1,10 +1,9 @@
-WORKSPACE= /var/jenkins_home/workspace/pipeline
-
 
 pipeline{
     agent any
     environment{
         MY_FILE = fileExists '/tmp/myfile22.txt'
+        WORKSPACE= /var/jenkins_home/workspace/pipeline
     }
     stages{
         stage('conditional if exists'){

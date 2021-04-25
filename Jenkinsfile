@@ -13,10 +13,11 @@ pipeline{
     }
 }
 
-def exists()
+def exists(){
 
 if (fileExists('$MY_FILE')) {
     echo 'Yes'
 } else {
     echo 'No'
+}
 }

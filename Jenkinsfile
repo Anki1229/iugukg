@@ -8,8 +8,9 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
-                cd /var/jenkins_home/workspace/pipeline
-                sh 'script.sh'
+                sh '''cd /var/jenkins_home/workspace/pipeline
+                    script.sh
+                '''
             }
         }
         stage('conditional if not exists'){

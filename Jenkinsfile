@@ -1,11 +1,11 @@
 
 pipeline{
     agent any
-    environment{
+    /* environment{
         MY_FILE = fileExists '/tmp/myfile22.txt'
         WORKSPACE= "/var/jenkins_home/workspace/pipeline"
-    }
-    stages{
+    } */
+ /*    stages{
         stage('conditional if exists'){
             when { expression { MY_FILE == 'true' } }
             steps {
@@ -22,4 +22,12 @@ pipeline{
             }
         }
     }
+} */
+
+def exists = fileExists '/tmp/myfile22.txt'
+
+if (exists) {
+    echo 'Yes'
+} else {
+    echo 'No'
 }

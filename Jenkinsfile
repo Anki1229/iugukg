@@ -1,9 +1,19 @@
-pipeline {
-    agent { docker 'alpine' }
-    stages {
-        stage('Test') {
+pipeline{
+    agent any
+    environment{
+        MY_FILE = fileExists '/tmp/myfile22.txt'
+    }
+    stages{
+        stage('conditional if exists'){
+            when { expression { MY_FILE == 'true' } }
             steps {
-                sh('printenv')
+                echo "file exists"
+            }
+        }
+        stage('conditional if not exists'){
+            when { expression { MY_FILE == 'false' } }
+            steps {
+                echo "file does not exist"
             }
         }
     }

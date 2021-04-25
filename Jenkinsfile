@@ -7,6 +7,8 @@ pipeline{
      stages{
         stage('conditional if exists'){
             steps {
+
+                sh 'cd /tmp'
                 exists()
             }
         }

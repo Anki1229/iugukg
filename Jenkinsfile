@@ -13,7 +13,7 @@ pipeline{
             }
         }
     }
-}
+
         stage('plan dev'){
             steps{
                 script{
@@ -46,3 +46,5 @@ def plan(){
             exit 0
         fi
         '''
+}
+}

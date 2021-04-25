@@ -9,17 +9,40 @@ pipeline{
             steps {
 
                 sh 'cd /tmp'
-                exists()
+                plan()
             }
         }
     }
 }
+        stage('plan dev'){
+            steps{
+                script{
+                    withCredentials([
+                        [ 
+                          usernamePassword(credentialsId: 'awsuser',
+                          passwordVariable: 'AWS_ACCESS_SECRET_KEY',
+                          usernameVariable: 'AWS_ACCESS_KEY_ID'
+                        ]
+                    ]) {
+                        withEnv([
+                            'ENVIRONMENT=dev'
+                        ]){
+                            plan()
+                        }
+                    } 
+                }
+            }
+        }              
+        
 
-def exists(){
-
-if (fileExists('$MY_FILE')) {
-    echo 'Yes'
-} else {
-    echo 'No'
-}
-}
+def plan(){
+    agent any
+    sh '''
+        cd /tmp/
+        echo "finding txt file"
+        if [ -f "$MY_FILE" ]
+        then 
+            echo "File Exists: Continue?
+            exit 0
+        fi
+        '''

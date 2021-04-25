@@ -1,3 +1,6 @@
+WORKSPACE= /var/jenkins_home/workspace/pipeline
+
+
 pipeline{
     agent any
     environment{
@@ -8,7 +11,7 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
-                sh '''cd /var/jenkins_home/workspace/pipeline
+                sh '''cd $WORKSPACE
                     script.sh
                 '''
             }

@@ -8,6 +8,7 @@ pipeline{
             when { expression { MY_FILE == 'true' } }
             steps {
                 echo "file exists"
+                sh 'script.sh'
             }
         }
         stage('conditional if not exists'){

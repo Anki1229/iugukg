@@ -19,15 +19,13 @@ pipeline{
                         withEnv([
                             'ENVIRONMENT=dev'
                         ]){
-                            plan()
-                        }
+                            liquibaseplan()
                     } 
                 }
             }
         }              
     }    
-
-def plan(){
+def liquibaseplan(){
     agent any
     sh '''
         cd /tmp/

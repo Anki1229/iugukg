@@ -16,7 +16,6 @@ pipeline {
                 echo 'Hello, JDK'
             }
         }
-    }
 
 def liquibaseplan(){
 
@@ -24,4 +23,5 @@ def liquibaseplan(){
                     sh '''liquibase validate
                     '''
                 }      
+}
 }

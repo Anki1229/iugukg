@@ -34,7 +34,7 @@ def plan(){
         echo "finding txt file"
         if [ -f "$MY_FILE" ]
         then 
-            echo "File Exists: Continue?
+            echo "File Exists: Continue? this is a test
             exit 0
         fi
         '''

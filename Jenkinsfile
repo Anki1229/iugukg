@@ -24,7 +24,8 @@ pipeline{
                 }
             }
         }              
-    }    
+    }
+}    
 def liquibaseplan(){
     agent any
     sh '''
@@ -37,5 +38,4 @@ def liquibaseplan(){
         fi
         '''
     }
-}
 }

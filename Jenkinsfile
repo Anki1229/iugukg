@@ -17,7 +17,6 @@ pipeline {
             }
         }
     }
-}
 
 def liquibaseplan(){
 

@@ -4,7 +4,9 @@ pipeline {
         stage('Example Build') {
             agent any
             steps {
-                echo 'Hello, Maven'
+                echo 'Hello, Liquibase'
+                    sh '''liquibase validate
+                    '''
             }
         }
         stage('Example Test') {

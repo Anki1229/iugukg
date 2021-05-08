@@ -27,21 +27,10 @@ pipeline{
     }
 }    
 def liquibaseplan(){
-    script {
-        stage('checkout'){
-            checkoutscm
-        }
-        }
-    }
     agent any
     sh '''
         cd $reponame
         echo "finding txt file"
-        if [ -f "$MY_FILE" ]
-        then 
-            echo "File Exists: Continue? this is a test
-            exit 0
-        fi
         '''
     }
 }

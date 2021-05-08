@@ -5,8 +5,11 @@ pipeline {
             agent any
             steps {
                 echo 'Hello, Liquibase'
+                container('mongodbcon'){
                     sh '''liquibase validate
                     '''
+                }
+                    
             }
         }
         stage('Example Test') {

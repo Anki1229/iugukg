@@ -1,4 +1,4 @@
-
+reponame='iugukg'
 pipeline{
     agent any
     environment{
@@ -27,9 +27,15 @@ pipeline{
     }
 }    
 def liquibaseplan(){
+    script {
+        stage('checkout'){
+            checkoutscm
+        }
+        }
+    }
     agent any
     sh '''
-        cd /tmp/
+        cd $reponame
         echo "finding txt file"
         if [ -f "$MY_FILE" ]
         then 

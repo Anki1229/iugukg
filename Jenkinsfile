@@ -5,9 +5,7 @@ pipeline {
             agent any
             steps {
                 echo 'Hello, Liquibase'
-                container('mongodbcon'){
-                    sh '''liquibase validate
-                    '''
+                liquibaseplan()
                 }
                     
             }
@@ -19,4 +17,12 @@ pipeline {
             }
         }
     }
+}
+
+def liquibaseplan(){
+
+    container('mongodbcon'){
+                    sh '''liquibase validate
+                    '''
+                }      
 }

@@ -12,5 +12,5 @@ resources:
      MyS3:
        Type: AWS::S3::Bucket
        Properties:
-         BucketName: myslsbucketdemoqwerty
+         BucketName: myslsbucketdemoqwertya
 

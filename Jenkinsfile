@@ -4,7 +4,7 @@ pipeline {
         stage('Example Build') {
             agent any
             steps {
-                echo 'Hello, Liquibase'
+                echo 'Hello, Liquibase, how are you?'
                 liquibaseplan()
                 }
                     
